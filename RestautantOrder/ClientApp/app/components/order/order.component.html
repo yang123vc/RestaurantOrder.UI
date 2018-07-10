@@ -1,0 +1,27 @@
+<h1>Menu</h1>
+
+<p>Input</p>
+<input type="text" [(ngModel)]="input" />
+<p>Output</p>
+<input type="text" value="{{output}}"  />
+<br /><br />
+<button (click)="InsertOrder(input)">Send</button>
+
+<br /><br />
+<p>Grid</p>
+<p *ngIf="!orders"><em>Carregando...</em></p>
+
+<table class='table' *ngIf="orders">
+    <thead>
+        <tr>
+            <th>Time Of Day</th>
+            <th>Dishies</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let order of orders">
+            <td>{{ order.timeOfDay }}</td>
+            <td>{{ order.dishies }}</td>
+        </tr>
+    </tbody>
+</table>
